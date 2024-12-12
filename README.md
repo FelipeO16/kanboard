@@ -2,6 +2,8 @@
 
 **KanBoard** é uma aplicação estilo **Kanban** desenvolvida para organização de tarefas. Com uma interface moderna, funcional e intuitiva, permite gerenciar listas de tarefas com suporte a operações como **Undo/Redo**, adição/remoção de colunas e tarefas, além da funcionalidade de copiar tarefas rapidamente.
 
+[KanBoard Web](https://kanboard.nuxt.dev/)
+
 ![image](https://github.com/user-attachments/assets/fcb0df6a-8bb8-4a01-8a03-55997bbff5ee)
 
 
