@@ -123,7 +123,5 @@ Este projeto está licenciado sob a **MIT License**. Consulte o arquivo [LICENSE
 ---
 
 ## Contato
-
-**Desenvolvedor(a)**: Seu Nome  
 **GitHub**: [FelipeO16](https://github.com/FelipeO16)  
 **LinkedIn**: [Felipe Oliveira](https://linkedin.com/in/felipe--)
