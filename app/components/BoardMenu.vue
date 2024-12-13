@@ -1,5 +1,4 @@
 <template>
-  <div>
     <Button
       icon="pi pi-bars"
       class="absolute top-4 right-4"
@@ -29,7 +28,6 @@
         </template>
       </Drawer>
     </Transition>
-  </div>
 </template>
 
 <script lang="ts" setup>
