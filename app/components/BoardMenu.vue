@@ -1,7 +1,8 @@
 <template>
+  <div>
     <Button
       icon="pi pi-bars"
-      class="absolute top-4 right-4"
+      class="btn top-4 right-4"
       @click="visible = !visible"
     />
     <Transition>
@@ -28,6 +29,7 @@
         </template>
       </Drawer>
     </Transition>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -72,4 +74,9 @@ const items = ref([
 ]);
 </script>
 
-<style></style>
+<style scoped>
+.btn {
+  position: absolute !important;
+  z-index: 1;
+}
+</style>
