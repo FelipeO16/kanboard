@@ -6,11 +6,7 @@
       header="Creating a new Board."
       :style="{ width: '25rem' }"
     >
-      <div class="mb-4"
-        >
-        Enter the title of the new board.
-        </div
-      >
+      <div class="mb-4">Enter the title of the new board.</div>
       <FloatLabel variant="in">
         <InputText id="in_label" v-model="title" variant="filled" />
         <label for="in_label">Title</label>
@@ -52,11 +48,9 @@ function createBoard() {
 
 <style scoped>
 .dialog-description {
-
 }
 
 .dialog-container {
   margin-top: 2rem;
 }
-
 </style>

@@ -5,18 +5,17 @@ import draggable from "vuedraggable";
 import { useKeyModifier, useLocalStorage, onKeyStroke } from "@vueuse/core";
 import { toRaw } from "vue";
 
-
-const props = defineProps<{ 
-  boardId: ID,
-  title: string,
-  focused: boolean,
- }>();
+const props = defineProps<{
+  boardId: ID;
+  title: string;
+  focused: boolean;
+}>();
 
 const controlState = useKeyModifier("Control", {
   events: ["keydown", "keyup"],
 });
 
-const onFocusAndKeyDown = () => controlState.value && props.focused
+const onFocusAndKeyDown = () => controlState.value && props.focused;
 
 onKeyStroke("z", () => {
   if (onFocusAndKeyDown()) undo();
@@ -57,7 +56,10 @@ const initialColumns: Column[] = [
   },
 ];
 
-const columns = useLocalStorage<Column[]>("kanBoard" + props.boardId, initialColumns);
+const columns = useLocalStorage<Column[]>(
+  "kanBoard" + props.boardId,
+  initialColumns
+);
 const undoStack = ref<Array<string>>([]);
 const redoStack = ref<Array<string>>([]);
 
@@ -120,8 +122,10 @@ function createColumn() {
   });
 }
 
-const createTask = (task: Task, columnId: Column['id']) => {
-  var column = columns.value.filter((column: Column) => column.id === columnId)[0];
+const createTask = (task: Task, columnId: Column["id"]) => {
+  var column = columns.value.filter(
+    (column: Column) => column.id === columnId
+  )[0];
   if (column && !column.tasks) {
     columns.value = columns.value.map((c: Column) => {
       if (c.id === columnId) {
@@ -132,8 +136,6 @@ const createTask = (task: Task, columnId: Column['id']) => {
   }
   column.tasks.push(task);
 };
-
-
 
 onMounted(() => {
   const lastState = undoStack.value[undoStack.value.length - 1];
@@ -147,7 +149,9 @@ onMounted(() => {
   <div>
     <div class="board shadow-lg">
       <Panel class="panel">
-        <button @click="$emit('delete', boardId)"><i class="pi pi-trash text-[var(--p-primary-500)] mr-2"></i></button>
+        <button @click="$emit('delete', boardId)">
+          <i class="pi pi-trash text-[var(--p-primary-500)] mr-2"></i>
+        </button>
         <slot></slot>
         <draggable
           v-model="columns"
@@ -160,9 +164,7 @@ onMounted(() => {
           class="draggable"
         >
           <template #item="{ element: column }: { element: Column }">
-            <Card
-              class="card"
-            >
+            <Card class="card">
               <template #title>
                 <DragHandle
                   class="drag-handle"
@@ -170,9 +172,7 @@ onMounted(() => {
                 >
                   <header class="column">
                     <InputGroup class="flex">
-                      <div
-                        class="move-column"
-                      >
+                      <div class="move-column">
                         <i class="pi pi-bars" style="font-size: 1rem"></i>
                       </div>
                       <InputText
@@ -249,7 +249,7 @@ onMounted(() => {
 }
 
 .card {
-  @apply min-w-[350px] relative shadow-sm shadow-[#858585] dark:bg-[#1c1c1c] bg-gray-100 ;
+  @apply min-w-[350px] relative shadow-sm shadow-[#858585] dark:bg-[#1c1c1c] bg-gray-100;
 }
 
 .drag-handle {
