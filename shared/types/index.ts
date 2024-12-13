@@ -18,4 +18,5 @@ export interface Task {
   title: string;
   createdAt: Date;
   color?: string;
+  tasks?: Task[];
 }

@@ -1,7 +1,7 @@
 <template>
-  <div class="h-screen flex">
+  <div class="h-screen flex relative">
     <BoardMenu />
-    <div class="p-4 flex flex-col gap-8 w-[calc(100%-15rem)]">
+    <div class="p-4 flex flex-col gap-8 w-full">
       <NewBoard @add="createBoard" />
       <Tabs v-model:value="focused" v-if="hasBoard">
         <TabList>
@@ -17,11 +17,7 @@
           >
             <template #item="{ element: board }: { element: Board }">
               <DragHandle>
-                <Tab
-                  :key="board.id"
-                  :value="board.id"
-                  >{{ board.title }}</Tab
-                >
+                <Tab :key="board.id" :value="board.id">{{ board.title }}</Tab>
               </DragHandle>
             </template>
           </draggable>

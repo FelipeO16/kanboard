@@ -16,7 +16,7 @@ function createTask(e: Event) {
       title: title.value.trim(),
       createdAt: new Date(),
       id: nanoid(),
-      color: '000000'
+      color: "000000",
     } as Task);
   }
 
@@ -30,7 +30,7 @@ function createTask(e: Event) {
       @keydown.tab="createTask"
       @keyup.enter="createTask"
       :unstyled="!focused"
-      class="focus:shadow resize-none rounded w-full border-none bg-transparent p-2 cursor-pointer "
+      class="focus:shadow resize-none rounded w-full border-none bg-transparent p-2 cursor-pointer"
       :class="{
         'h-10': !focused,
         'h-20': focused,
